@@ -1,0 +1,31 @@
+{
+  "name": "Burger-Master-Sequelized",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HickoryWinds/Burger-Master.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HickoryWinds/Burger-Master/issues"
+  },
+  "homepage": "https://github.com/HickoryWinds/Burger-Master#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "method-override": "^3.0.0",
+    "mysql2": "^2.0.0",
+    "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  }
+}
