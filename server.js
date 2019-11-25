@@ -28,15 +28,8 @@ app.set('view engine', 'handlebars');
 
 // import routing controllers
 require('./controllers/burgers_controller.js')(app);
-// var routes = require('./controllers/burgers_controller.js')(app);
-// app.use('/', routes);
 
-// start app listening
-// app.listen(PORT, function(){
-//     // display that port is monitored
-//     console.log('Serving listening on http://localhost: ' + PORT);
-// });
-
+// sync with database and start app listening
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);

@@ -13,19 +13,19 @@
             <ul>
                 {{!-- list database entries where devoured is false --}}
                 {{#each burgers}}
-                {{#unless this.devoured}}
+                {{!-- {{#unless this.devoured}} --}}
                 <li>
                     {{!-- <p><span class='label'>ID </span>{{this.id}}</p> --}}
                     <p><span class='label'>Burger </span>{{this.burger_name}}</p>
-                    {{!-- <p><span class='label'>Devoured </span>{{this.devoured}}</p> --}}
 
                     <form action="burgers/update/{{this.id}}?_method=PUT" method='POST'>
                         {{!-- <input type='hidden' name='devoured'> --}}
                         <input type='hidden' name='devoured' value='true'>
+                        <input type='text' name='eater' placeholder="Who's eating?">
                         <button type='submit'>Devour</button>
                     </form>
                 </li>
-                {{/unless}}
+                {{!-- {{/unless}} --}}
                 {{/each}}
             </ul>
         </div>
@@ -37,7 +37,6 @@
             <form class="update-form" action="/burgers/create" method='POST'>
 
                 <div class="form-group">
-                    {{!-- <label for="auth">:</label> --}}
                     <input type="text" name="sandwich" placeholder="your choice">
                 </div>
                 <button type="submit">Update Burger List</button>
@@ -56,6 +55,14 @@
                     {{!-- <p><span class='label'>ID </span>{{this.id}}</p> --}}
                     <p><span class='label'>Burger </span>{{this.burger_name}}</p>
                     {{!-- <p><span class='label'>Devoured </span>{{this.devoured}}</p> --}}
+                    <p><span class='label'>Devoured by: </span>
+                     <ul>
+                        {{#each this.customers}}
+                        <li>
+                        {{customer_name}}
+                        </li>
+                        {{/each}}
+                        </ul>
                 </li>
                 {{/if}}
                 {{/each}}

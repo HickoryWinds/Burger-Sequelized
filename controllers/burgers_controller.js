@@ -1,7 +1,6 @@
 // import express for and burger.js for routing
 var express = require('express');
-var router = express.Router();
-// var burger = require('../models/burger.js');
+// var router = express.Router();
 var db = require('../models')
 
 module.exports = function(app){
@@ -12,16 +11,21 @@ module.exports = function(app){
     });
     // get information for all burgers
     app.get('/burgers', function(req, res){
-        db.burgers.findAll({}).then(function(dbBurgers){
-            // console.log(res.json(dbBurgers));
-            // var hbsObject = {burgers: data};
+        db.burgers.findAll({
+            include: [db.customers]
+        }).then(function(dbBurgers){
+            console.log('mmmmmmmmmmmmmmmmmmmmm')
+            console.log(dbBurgers)
             res.render('index', {burgers: dbBurgers});
-            // res.render('index', dbBurgers);
         });
+       
     });
     
     // update 'devoured' status in table burgers
     app.put('/burgers/update/:id', function(req, res){
+        // console.log(req.params.id);
+        // console.log(req.body.devoured);
+        console.log(req.body.eater);
         var condition = req.params.id;
         db.burgers.update({
             devoured: true
@@ -32,8 +36,15 @@ module.exports = function(app){
           }  
         })
         .then(function(){
-            res.redirect('/burgers');
+            console.log('next step');
         });
+        var eater = req.body.eater;
+        db.customers.create({
+            customer_name: eater,
+            burgerId: condition
+        }).then(function(){
+            res.redirect('/burgers');
+        })
     });
     
     // add a new burger to the list

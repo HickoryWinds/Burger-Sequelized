@@ -19,7 +19,9 @@ module.exports = function(sequelize, DataTypes){
 
     // one burger can have many customers devour it
     burgers.associate = function(models){
-        burgers.hasMany(models.customer,{
+        console.log(models);
+        console.log(models.customers);
+        burgers.hasMany(models.customers,{
             onDelete: 'cascade'
         });
     };
