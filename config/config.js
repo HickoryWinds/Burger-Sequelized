@@ -19,3 +19,5 @@ module.exports = {
     "dialect": "mysql"
 }
 }
+
+// use JAWSDB for database connection to heroku

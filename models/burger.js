@@ -1,5 +1,6 @@
 
 module.exports = function(sequelize, DataTypes){
+    // define burgers table in database
     var burgers = sequelize.define('burgers', {
         burger_name: {
             type: DataTypes.STRING,
@@ -17,15 +18,12 @@ module.exports = function(sequelize, DataTypes){
         }
     });
 
-    // one burger can have many customers devour it
+    //  one burger can have many customers devour it using hasMany association
     burgers.associate = function(models){
-        console.log(models);
-        console.log(models.customers);
         burgers.hasMany(models.customers,{
+            // if a burger is deleted the associated information if deleted
             onDelete: 'cascade'
         });
     };
     return burgers;
 };
-
-console.log('3');

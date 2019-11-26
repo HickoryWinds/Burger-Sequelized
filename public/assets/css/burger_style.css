@@ -1,23 +1,27 @@
+
+/* style body elements */
 body {
     background-image: url(../img/gravel.png);
 }
 
+
+h1, h2 {
+  text-align: center;
+}
+
+li {
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid palevioletred;
+  background: #faebd7;
+}
+
+/* style classes */
 .col-4 {
     border: 3px solid red;
     background-color: white;
 }
 
-h1, h2 {
-    text-align: center;
-}
-
-li {
-    padding: 5px;
-    margin: 5px;
-    border: 2px solid palevioletred;
-    background: #faebd7;
-  }
-  
   .label {
     font-weight: bold;
   }

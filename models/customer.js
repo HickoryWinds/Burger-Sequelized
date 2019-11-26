@@ -1,5 +1,6 @@
 
 module.exports = function(sequelize, DataTypes){
+    // define customers table in database
     var customers = sequelize.define('customers', {
         customer_name: {
             type: DataTypes.STRING,
@@ -12,10 +13,11 @@ module.exports = function(sequelize, DataTypes){
             }
         }
     },{
+        // keep table name from being pluralized by sequelize
         freezeTableName: true
     });
     
-    // A customer belongs to a burger
+    // A customer belongs to a specific burger using belongs to association
     customers.associate = function(models){
         customers.belongsTo(models.burgers, {
             foreignKey: {
@@ -26,4 +28,3 @@ module.exports = function(sequelize, DataTypes){
     return customers;
 };
     
-console.log('10');

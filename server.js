@@ -18,7 +18,6 @@ var bodyParser = require('body-parser');
 app.use(express.static('public'));
 
 // set up express app to handle data parsing
-// app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
 
